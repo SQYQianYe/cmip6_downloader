@@ -171,7 +171,7 @@ if __name__ == '__main__':
 
         folder_path, folder_name = get_folder_path(search_params_dictionary)
 
-        records_search_url = 'https://esgf-node.llnl.gov/esg-search/search/?' + urlencode(url_params_dictionary)
+        records_search_url = 'https://aims2.llnl.gov/metagrid-backend/proxy/search?' + urlencode(url_params_dictionary)
 
         print_and_log('1- Searching for records: ' + records_search_url)
         records_content = url_open_retry(records_search_url, 3, 10)
@@ -199,7 +199,9 @@ if __name__ == '__main__':
 
                         print_and_log('4- Fetching list of files to be downloaded...')
                         for record in records['response']['docs']:
-                            url_files_search = 'https://esgf-node.llnl.gov/search_files/' + record['id'] + '/' + record['index_node'] + '/?limit=9999&rnd=' + str(random.randint(100000, 999999))
+                            url_files_search = 'https://aims2.llnl.gov/metagrid-backend/proxy/search?dataset_id=' + urllib.parse.quote(record['id']) + '&format=application%2Fsolr%2Bjson&limit=9999&offset=0&type=File'
+
+                            print(url_files_search)
                             pool_search.apply_async(get_files_to_download, args=[url_files_search])
 
                         pool_search.close()
