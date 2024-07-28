@@ -13,11 +13,13 @@ __How to run it:__
 3) Open a terminal window and change directories to the new folder
 4) Type: python3 cmip6_downloader.py (you can run it in interactive mode or provide search params)
 
-__What's new in version 2:__
+__Highlight:__
 - You can now run the downloader in pure command line mode using any of the search params available in the website: --mip_era, --activity_id, --model_cohort, --product, --source_id, --institution_id, --source_type, --nominal_resolution, --experiment_id, --sub_experiment_id, --variant_label, --grid_label, --table_id, --frequency, --realm, --variable_id, --cf_standard_name, --data_node.
+
+__Param:__
 - For more information on the optional parameters, please refer to: https://clipc-services.ceda.ac.uk/dreq/index.html.
 
-__Example:__
+__Use Example:__
 
 ``python3 cmip6_downloader.py --variable_id siflswdtop --experiment_id ssp126``
 
