@@ -176,10 +176,10 @@ def Check_NetCDF_Error(folder_path):
 
     if error_files:
         print_and_log("The following files cannot be opened using netCDF4:")
-        for file in error_files:
-            print_and_log(file + "have been removed")
-            # 删除错误数据
-            os.remove(file)
+        for error_file in error_files:
+            print_and_log(error_file + "have been removed")
+            # remove error file
+            os.remove(error_file)
         
     else:
         print_and_log("All files no problem")
