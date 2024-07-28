@@ -11,7 +11,9 @@ __How to run it:__
 4) Type: python3 cmip6_downloader.py (you can run it in interactive mode or provide search params)
 
 __What's new in version 2:__
-- You can now run the downloader in pure command line mode using any of the search params available in the website: --mip_era, --activity_id, --model_cohort, --product, --source_id, --institution_id, --source_type, --nominal_resolution, --experiment_id, --sub_experiment_id, --variant_label, --grid_label, --table_id, --frequency, --realm, --variable_id, --cf_standard_name, --data_node. Example:
+- You can now run the downloader in pure command line mode using any of the search params available in the website: --mip_era, --activity_id, --model_cohort, --product, --source_id, --institution_id, --source_type, --nominal_resolution, --experiment_id, --sub_experiment_id, --variant_label, --grid_label, --table_id, --frequency, --realm, --variable_id, --cf_standard_name, --data_node.
+- For more information on the optional parameters, please refer to: https://clipc-services.ceda.ac.uk/dreq/index.html
+### Example:
 
 ``python3 cmip6_downloader.py --variable_id siflswdtop --experiment_id ssp126``
 
@@ -28,6 +30,6 @@ Note: Some files might not be downloaded when you run this script (the script wi
 
 I'm still improving the code so please be patient and I'm sorry if it breaks for you somehow. Code contributions are very welcome.
 
-Bugs, questions or request for new features: thiago@tloureiro.com
+Bugs, questions or request for new features: thiago@tloureiro.com suqianye2000@gmail.com
 
 [![DOI](https://zenodo.org/badge/183989782.svg)](https://zenodo.org/badge/latestdoi/183989782)
