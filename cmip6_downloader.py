@@ -158,7 +158,7 @@ def get_number_of_previously_downloaded_files(folder_path):
     else:
         return 0
 
-def Check_NetCDF_Error(folder_path):
+def check_error_cmip_netcdf_file(folder_path):
 
     error_files = []
     cmip6_files = os.listdir(folder_path)
@@ -266,11 +266,11 @@ if __name__ == '__main__':
 
                             print_and_log('Done. Check the ' + folder_path + ' folder :)')
                             # check error netcdf data
-                        Check_NetCDF_Error(folder_path)
+                        check_error_cmip_netcdf_file(folder_path)
                     else:
                         print_and_log('All files were previously downloaded. Check ' + folder_path + ' folder')
                         # check error netcdf data
-                        Check_NetCDF_Error(folder_path)
+                        check_error_cmip_netcdf_file(folder_path)
                 else:
                     print_and_log('No files found inside the records')
             else:
