@@ -1,13 +1,12 @@
 import urllib.request
 import json
-import random
 import multiprocessing
 import os
 import sys
 import argparse
 from urllib.parse import urlencode
 import time
-
+from netCDF4 import Dataset
 
 number_of_processes = 50
 files_to_download = multiprocessing.Manager().list()
@@ -159,6 +158,34 @@ def get_number_of_previously_downloaded_files(folder_path):
     else:
         return 0
 
+def Check_NetCDF_Error(folder_path):
+
+    error_files = []
+    cmip6_files = os.listdir(folder_path)
+        
+    for file in cmip6_files:
+        data_name = file
+        test_data = os.path.join(folder_path, data_name)
+        
+        try:
+            data = Dataset(test_data)
+            data.close()
+            pass
+        except:
+            error_files.append(test_data)
+
+    if error_files:
+        print_and_log("The following files cannot be opened using netCDF4:")
+        for file in error_files:
+            print_and_log(file + "have been removed")
+            # 删除错误数据
+            os.remove(file)
+        
+    else:
+        print_and_log("All files no problem")
+    return
+
+
 
 if __name__ == '__main__':
 
@@ -249,3 +276,6 @@ if __name__ == '__main__':
             print_and_log('There was a problem searching for the records')
     else:
         print_and_log('No search params provided :(')
+    
+    # check error netcdf data
+    Check_NetCDF_Error(folder_path)
