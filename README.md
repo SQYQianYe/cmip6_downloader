@@ -3,6 +3,8 @@ Version 2 doesn't seem to work anymore - a pre-release of version 3 is available
 __Requirements:__
 - Python 3
 - wget
+- urllib
+- netCDF4
 
 __How to run it:__
 
