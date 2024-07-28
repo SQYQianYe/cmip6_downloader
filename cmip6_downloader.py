@@ -265,9 +265,12 @@ if __name__ == '__main__':
                                         print_and_log(failed_file)
 
                             print_and_log('Done. Check the ' + folder_path + ' folder :)')
-
+                            # check error netcdf data
+                        Check_NetCDF_Error(folder_path)
                     else:
                         print_and_log('All files were previously downloaded. Check ' + folder_path + ' folder')
+                        # check error netcdf data
+                        Check_NetCDF_Error(folder_path)
                 else:
                     print_and_log('No files found inside the records')
             else:
@@ -277,5 +280,3 @@ if __name__ == '__main__':
     else:
         print_and_log('No search params provided :(')
     
-    # check error netcdf data
-    Check_NetCDF_Error(folder_path)
